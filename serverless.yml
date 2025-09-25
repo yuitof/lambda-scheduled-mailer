@@ -1,0 +1,21 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: yuito
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: lambda-scheduled-mailer
+
+provider:
+  name: aws
+  runtime: python3.12
+
+functions:
+  mailer:
+    handler: handler.run
+    events:
+      - schedule: cron(0 0 ? * FRI *)
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: true

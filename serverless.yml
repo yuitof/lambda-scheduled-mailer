@@ -11,7 +11,7 @@ functions:
   mailer:
     handler: handler.run
     events:
-      - schedule: cron(0 0 ? * FRI *)
+      - schedule: cron(0 0 ? * SUN *)
 
 plugins:
   - serverless-python-requirements
